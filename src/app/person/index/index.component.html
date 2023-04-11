@@ -1,0 +1,32 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4></h4>
+      <a routerLink="/person/create" class="btn btn-success">Add</a>
+    </div>
+
+    <br>
+    
+    <table class="table table-hover table-bordered table-sm table-primary ">
+      <tr class="bg-primary">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let person of persons">
+        <td>{{ person.id }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.email }}</td>
+        <td>{{ person.address }}</td>
+        <td>{{ person.phone }}</td>
+        <td>
+          <a href="#" [routerLink]="['/person/', 'edit', person.id  ]" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deletePerson(person.id)" class="btn btn-danger ">Delete</button>
+          
+        </td>
+      </tr>
+    </table>
+ </section>
